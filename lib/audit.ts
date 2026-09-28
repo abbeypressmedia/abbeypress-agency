@@ -78,13 +78,13 @@ export async function runAudit(inputUrl: string): Promise<AuditResult> {
   const html = (await response.text()).slice(0, 2_000_000);
   const lower = html.toLowerCase();
 
-  const title = textBetween(html, /<title[^>]*>([\\s\\S]*?)<\\/title>/i);
+  const title = textBetween(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
   const description = textBetween(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["'][^>]*>/i)
     || textBetween(html, /<meta[^>]+content=["']([^"']*)["'][^>]+name=["']description["'][^>]*>/i);
-  const h1Count = count(html, /<h1(?:\\s|>)/gi);
-  const images = count(html, /<img(?:\\s|>)/gi);
+  const h1Count = count(html, /<h1(?:\s|>)/gi);
+  const images = count(html, /<img(?:\s|>)/gi);
   const imagesWithAlt = count(html, /<img[^>]+alt=["'][^"']+["'][^>]*>/gi);
-  const links = count(html, /<a(?:\\s|>)/gi);
+  const links = count(html, /<a(?:\s|>)/gi);
   const productSignals = has(lower, /shopify|woocommerce|product-json|add-to-cart|add to cart|buy now/);
   const schema = has(lower, /application\/ld\+json/);
   const canonical = has(lower, /<link[^>]+rel=["']canonical["']/i);
