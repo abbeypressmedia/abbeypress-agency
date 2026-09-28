@@ -156,7 +156,7 @@ export function HomeSections() {
                   <div className="tag-row">
                     {service.bullets.map((bullet) => <span key={bullet}>{bullet}</span>)}
                   </div>
-                  <a className="button button-dark" href="#contact">Talk about this work <span>↗</span></a>
+                  <a className="button button-dark" href="/contact">Talk about this work <span>↗</span></a>
                 </div>
               ))}
             </div>
@@ -318,7 +318,7 @@ export function HomeSections() {
           </div>
           <div className="contact-actions">
             <a className="button button-light" href="#audit">Request an audit <span>↗</span></a>
-            <a className="contact-link" href="#audit">Start with the audit form <span>↗</span></a>
+            <a className="contact-link" href="/audit">Start with the audit form <span>↗</span></a>
           </div>
         </div>
       </section>
