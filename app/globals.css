@@ -269,3 +269,9 @@ h2 { font-size: clamp(46px, 5vw, 78px); letter-spacing: -.065em; line-height: .9
   .season-grid div { min-height: 150px; }
   .ecosystem-logos { grid-template-columns: 1fr; }
 }
+
+.blog-hero { min-height: 560px; display: grid; align-items: center; }
+.blog-list { background: #e9e5da; }
+.blog-page-grid { border-top: 0; }
+.blog-page-grid article { min-height: 330px; }
+.blog-page-grid article p { color: var(--muted); line-height: 1.5; max-width: 330px; }
