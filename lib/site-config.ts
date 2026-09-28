@@ -1,9 +1,9 @@
 export const siteConfig = {
   brand: "AbbeyPress",
   founder: "AbbeyPress",
-  email: "YOUR_EMAIL@example.com",
-  whatsapp: "YOUR_WHATSAPP_NUMBER",
-  whatsappDisplay: "WhatsApp",
+  email: "abbeypressmedia@gmail.com",
+  whatsapp: "2349051758143",
+  whatsappDisplay: "+234 905 175 8143",
   location: "Nigeria",
 } as const;
 
