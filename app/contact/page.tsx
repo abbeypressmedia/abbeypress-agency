@@ -4,7 +4,10 @@ import { FormEvent, useState } from "react";
 import { emailUrl, siteConfig, whatsappUrl } from "@/lib/site-config";
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", store: "", service: "Store growth", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", store: "", service: "Store growth", message: "" });
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
 
   const message = [
     `Hi AbbeyPress, I'm ${form.name || "interested in working with you"}.`,
@@ -13,9 +16,31 @@ export default function ContactPage() {
     form.message ? `\n${form.message}` : "",
   ].filter(Boolean).join("\n");
 
-  function submit(event: FormEvent) {
+  async function submit(event: FormEvent) {
     event.preventDefault();
-    window.location.href = whatsappUrl(message);
+    setSending(true);
+    setSent(false);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await response.json();
+
+      if (!response.ok) throw new Error(data.error || "Unable to send enquiry.");
+
+      setSent(true);
+      window.setTimeout(() => {
+        window.location.href = whatsappUrl(message);
+      }, 500);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unable to send enquiry.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -42,11 +67,14 @@ export default function ContactPage() {
           </div>
           <form className="project-form" onSubmit={submit}>
             <label>Name<input required value={form.name} onChange={e => setForm({...form, name: e.target.value})} placeholder="Your name" /></label>
+            <label>Email<input required type="email" value={form.email} onChange={e => setForm({...form, email: e.target.value})} placeholder="you@company.com" /></label>
             <label>Store URL<input value={form.store} onChange={e => setForm({...form, store: e.target.value})} placeholder="https://yourstore.com" /></label>
             <label>What do you need?<select value={form.service} onChange={e => setForm({...form, service: e.target.value})}><option>Store growth</option><option>Shopify development</option><option>Conversion optimization</option><option>Paid acquisition</option><option>Retention / email</option><option>Full ecommerce strategy</option></select></label>
             <label>What should we know?<textarea rows={6} value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="What's happening now, and what would a successful outcome look like?" /></label>
-            <button className="button button-dark" type="submit">Send enquiry on WhatsApp ↗</button>
-            <small>This opens WhatsApp with your enquiry pre-filled. Your message is not stored by AbbeyPress through this form.</small>
+            <button className="button button-dark" type="submit" disabled={sending}>{sending ? "Sending enquiry…" : "Send enquiry + open WhatsApp ↗"}</button>
+            {sent && <p className="form-success">Enquiry sent. Opening WhatsApp so you can continue the conversation directly.</p>}
+            {error && <p className="form-error">{error}</p>}
+            <small>Your enquiry is emailed to AbbeyPress when email delivery is configured, then WhatsApp opens with the same context.</small>
           </form>
         </div>
       </section>
