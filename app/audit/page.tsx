@@ -130,7 +130,7 @@ export default function AuditPage() {
 
             <div className="audit-result-cta">
               <div><span className="eyebrow">TURN THE AUDIT INTO ACTION</span><h3>Want us to prioritize the fixes?</h3><p>Send the report to AbbeyPress and we can turn the findings into a practical growth roadmap.</p></div>
-              <a className="button button-dark" href="/#contact">Talk through the findings ↗</a>
+              <a className="button button-dark" href="/contact">Talk through the findings ↗</a>
             </div>
           </div>
         </section>
