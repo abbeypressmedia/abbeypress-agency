@@ -25,7 +25,6 @@ type Result = {
 
 export default function AuditPage() {
   const [url, setUrl] = useState("");
-  const [email, setEmail] = useState("");
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -33,9 +32,7 @@ export default function AuditPage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const initialUrl = params.get("url");
-    const initialEmail = params.get("email");
     if (initialUrl) setUrl(initialUrl);
-    if (initialEmail) setEmail(initialEmail);
   }, []);
 
   const grouped = useMemo(() => {
@@ -56,7 +53,7 @@ export default function AuditPage() {
       const response = await fetch("/api/audit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, email }),
+        body: JSON.stringify({ url }),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Audit failed.");
@@ -78,7 +75,6 @@ export default function AuditPage() {
           <p>Enter a public storefront URL. We’ll scan the page for technical, SEO, conversion, trust and measurement signals and turn the findings into a practical action list.</p>
           <form className="audit-page-form" onSubmit={submit}>
             <input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://yourstore.com" type="url" required />
-            <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@company.com (optional)" type="email" />
             <button className="button button-light" disabled={loading}>{loading ? "Scanning store…" : "Run free audit ↗"}</button>
           </form>
           {error && <p className="audit-error">{error}</p>}
