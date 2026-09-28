@@ -6,7 +6,7 @@ const links = [
   ["Systems", "#systems"],
   ["Services", "#services"],
   ["Proof", "#proof"],
-  ["Contact", "#contact"],
+  ["Contact", "/contact"],
 ];
 
 export function SiteNav() {
