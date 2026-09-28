@@ -182,8 +182,6 @@ export function HomeSections() {
           <form className="audit-form" action="/audit" method="get">
             <label htmlFor="store-url">Store URL</label>
             <input id="store-url" name="url" placeholder="https://yourstore.com" type="url" required />
-            <label htmlFor="email">Work email</label>
-            <input id="email" name="email" placeholder="you@company.com" type="email" required />
             <button className="button button-light" type="submit">Start the audit <span>↗</span></button>
             <small>Your first-pass report is generated from the public storefront—no admin access required.</small>
           </form>
