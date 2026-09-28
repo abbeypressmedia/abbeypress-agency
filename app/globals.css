@@ -367,3 +367,7 @@ h2 { font-size: clamp(46px, 5vw, 78px); letter-spacing: -.065em; line-height: .9
 @media (max-width: 560px) {
   .direct-actions { align-items: flex-start; flex-direction: column; gap: 17px; }
 }
+
+.project-form button:disabled { opacity: .6; cursor: wait; }
+.form-success { margin: 0; color: #5c7e26; font-size: 12px; font-weight: 700; }
+.form-error { margin: 0; color: #a94438; font-size: 12px; font-weight: 700; }
