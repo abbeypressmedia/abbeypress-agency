@@ -211,8 +211,8 @@ export function HomeSections() {
             <p>Bring the URL, the commercial goal and the bottleneck. We will start from there.</p>
           </div>
           <div className="contact-actions">
-            <a className="button button-light" href="mailto:hello@abbeypress.agency">Email AbbeyPress <span>↗</span></a>
-            <a className="contact-link" href="https://wa.me/" target="_blank" rel="noreferrer">WhatsApp <span>↗</span></a>
+            <a className="button button-light" href="#audit">Request an audit <span>↗</span></a>
+            <a className="contact-link" href="#audit">Start with the audit form <span>↗</span></a>
           </div>
         </div>
       </section>
