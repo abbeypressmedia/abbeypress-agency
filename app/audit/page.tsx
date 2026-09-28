@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 
 type Check = {
   id: string;
@@ -29,6 +29,14 @@ export default function AuditPage() {
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const initialUrl = params.get("url");
+    const initialEmail = params.get("email");
+    if (initialUrl) setUrl(initialUrl);
+    if (initialEmail) setEmail(initialEmail);
+  }, []);
 
   const grouped = useMemo(() => {
     if (!result) return {};
