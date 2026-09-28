@@ -203,6 +203,114 @@ export function HomeSections() {
         </div>
       </section>
 
+      <section className="section founder-section">
+        <div className="shell founder-grid">
+          <div className="founder-photo-wrap">
+            <img src="/founder.jpg" alt="AbbeyPress founder" className="founder-photo" />
+            <div className="founder-badge">ABBEYPRESS<br /><span>FOUNDER</span></div>
+          </div>
+          <div className="founder-copy">
+            <div className="eyebrow">THE PERSON BEHIND THE SYSTEM</div>
+            <h2>Built by someone who<br /><em>understands the sale.</em></h2>
+            <p className="lead">
+              AbbeyPress is designed around a simple idea: ecommerce growth should connect strategy,
+              storefront experience, acquisition and retention instead of treating them as separate jobs.
+            </p>
+            <div className="founder-stats">
+              <div><strong>01</strong><span>Commercial thinking</span></div>
+              <div><strong>02</strong><span>Conversion-first execution</span></div>
+              <div><strong>03</strong><span>Systems over shortcuts</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section proof-section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">PROOF OF WORK</div>
+              <h2>Make the work<br /><em>easy to understand.</em></h2>
+            </div>
+            <p>Case studies will live here as structured proof: the problem, the intervention, the commercial metric and the lesson.</p>
+          </div>
+          <div className="case-grid">
+            <article className="case-card case-large">
+              <span>CASE STUDY / 01</span>
+              <div><h3>Storefront → conversion system</h3><p>A full-funnel rebuild focused on clarity, trust and purchase friction.</p></div>
+              <b>View case study ↗</b>
+            </article>
+            <article className="case-card">
+              <span>CASE STUDY / 02</span>
+              <div><h3>Traffic → profitable landing path</h3><p>Align acquisition intent with the page experience.</p></div>
+              <b>View case study ↗</b>
+            </article>
+            <article className="case-card accent-card">
+              <span>CASE STUDY / 03</span>
+              <div><h3>First order → repeat customer</h3><p>Lifecycle systems that give retention a real commercial role.</p></div>
+              <b>View case study ↗</b>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section seasonal-section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">SEASONAL PLANNER</div>
+              <h2>Don't discover<br /><em>the deadline late.</em></h2>
+            </div>
+            <p>Campaigns need lead time. The planner will turn important retail moments into a practical preparation calendar.</p>
+          </div>
+          <div className="season-grid">
+            <div><span>OCT</span><strong>Halloween</strong><small>Offer + creative + landing page</small></div>
+            <div><span>NOV</span><strong>Black Friday</strong><small>Acquisition + conversion + retention</small></div>
+            <div><span>DEC</span><strong>Holiday</strong><small>Gift intent + urgency + fulfilment</small></div>
+            <div><span>JAN</span><strong>New Year</strong><small>Retention + reactivation</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section ecosystem-section">
+        <div className="shell ecosystem-grid">
+          <div>
+            <div className="eyebrow">ECOSYSTEM</div>
+            <h2>Work with the tools<br /><em>your store already uses.</em></h2>
+          </div>
+          <div className="ecosystem-logos">
+            {["Shopify", "Klaviyo", "Meta", "Google Ads", "TikTok", "GA4", "GTM", "Hotjar"].map((tool) => (
+              <span key={tool}>{tool}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section testimonial-section">
+        <div className="shell testimonial-box">
+          <div className="eyebrow">CLIENT EXPERIENCE</div>
+          <blockquote>“The goal isn't to make a prettier store. It's to make the next customer understand why they should buy.”</blockquote>
+          <div className="quote-meta">ABBEYPRESS / OPERATING PRINCIPLE</div>
+        </div>
+      </section>
+
+      <section className="section blog-section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <div className="eyebrow">INSIGHTS</div>
+              <h2>Useful thinking,<br /><em>not content for content's sake.</em></h2>
+            </div>
+            <a className="text-link" href="/blog">View the blog <span>↗</span></a>
+          </div>
+          <div className="article-grid">
+            <article><span>CONVERSION</span><h3>Why more traffic won't fix a confused storefront.</h3><a href="/blog">Read article ↗</a></article>
+            <article><span>STRATEGY</span><h3>The difference between an ecommerce tactic and a growth system.</h3><a href="/blog">Read article ↗</a></article>
+            <article><span>RETENTION</span><h3>Where the second purchase actually starts.</h3><a href="/blog">Read article ↗</a></article>
+          </div>
+        </div>
+      </section>
+
       <section className="section contact-section" id="contact">
         <div className="shell contact-box">
           <div>
