@@ -39,7 +39,7 @@ export function HomeSections() {
               clearer offers and conversion systems that compound.
             </p>
             <div className="actions">
-              <a className="button button-dark" href="#audit">Get your free audit <span>↗</span></a>
+              <a className="button button-dark" href="/audit">Get your free audit <span>↗</span></a>
               <a className="text-link" href="#systems">Explore the systems <span>↓</span></a>
             </div>
             <div className="micro-proof">
@@ -90,7 +90,7 @@ export function HomeSections() {
               Most stores do not need another random tactic. They need a connected system where the
               storefront, offer, traffic, retention and measurement all support the same commercial goal.
             </p>
-            <a className="text-link" href="#audit">See how we diagnose a store <span>↗</span></a>
+            <a className="text-link" href="/audit">See how we diagnose a store <span>↗</span></a>
           </div>
         </div>
         <div className="shell process-grid">
@@ -179,13 +179,13 @@ export function HomeSections() {
               <span>✓ No sales call required</span>
             </div>
           </div>
-          <form className="audit-form" action="#contact">
+          <form className="audit-form" action="/audit" method="get">
             <label htmlFor="store-url">Store URL</label>
-            <input id="store-url" name="store-url" placeholder="https://yourstore.com" type="url" required />
+            <input id="store-url" name="url" placeholder="https://yourstore.com" type="url" required />
             <label htmlFor="email">Work email</label>
             <input id="email" name="email" placeholder="you@company.com" type="email" required />
             <button className="button button-light" type="submit">Start the audit <span>↗</span></button>
-            <small>Demo form for the first build. The audit engine will be wired in the next phase.</small>
+            <small>Your first-pass report is generated from the public storefront—no admin access required.</small>
           </form>
         </div>
       </section>
