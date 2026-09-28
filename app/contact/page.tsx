@@ -30,16 +30,18 @@ export default function ContactPage() {
       });
       const data = await response.json();
 
-      if (!response.ok) throw new Error(data.error || "Unable to send enquiry.");
-
-      setSent(true);
+      if (!response.ok) {
+        setError(data.error || "Email notification is not configured yet. WhatsApp is still available below.");
+      } else {
+        setSent(true);
+      }
+    } catch {
+      setError("Email notification could not be reached. WhatsApp is still available below.");
+    } finally {
+      setSending(false);
       window.setTimeout(() => {
         window.location.href = whatsappUrl(message);
       }, 500);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Unable to send enquiry.");
-    } finally {
-      setSending(false);
     }
   }
 
@@ -72,17 +74,17 @@ export default function ContactPage() {
             <label>What do you need?<select value={form.service} onChange={e => setForm({...form, service: e.target.value})}><option>Store growth</option><option>Shopify development</option><option>Conversion optimization</option><option>Paid acquisition</option><option>Retention / email</option><option>Full ecommerce strategy</option></select></label>
             <label>What should we know?<textarea rows={6} value={form.message} onChange={e => setForm({...form, message: e.target.value})} placeholder="What's happening now, and what would a successful outcome look like?" /></label>
             <button className="button button-dark" type="submit" disabled={sending}>{sending ? "Sending enquiry…" : "Send enquiry + open WhatsApp ↗"}</button>
-            {sent && <p className="form-success">Enquiry sent. Opening WhatsApp so you can continue the conversation directly.</p>}
+            {sent && <p className="form-success">Enquiry captured. Opening WhatsApp so you can continue the conversation directly.</p>}
             {error && <p className="form-error">{error}</p>}
-            <small>Your enquiry is emailed to AbbeyPress when email delivery is configured, then WhatsApp opens with the same context.</small>
+            <small>Your enquiry is emailed to {siteConfig.email} once Resend email delivery is configured. WhatsApp opens now so you never lose the lead.</small>
           </form>
         </div>
       </section>
 
       <section className="contact-details-section">
         <div className="shell contact-details">
-          <div><span>DIRECT EMAIL</span><strong>{siteConfig.email.includes("YOUR_") ? "Add your email in lib/site-config.ts" : siteConfig.email}</strong></div>
-          <div><span>WHATSAPP</span><strong>{siteConfig.whatsapp.includes("YOUR_") ? "Add your WhatsApp number in lib/site-config.ts" : siteConfig.whatsappDisplay}</strong></div>
+          <div><span>DIRECT EMAIL</span><strong>{siteConfig.email}</strong></div>
+          <div><span>WHATSAPP</span><strong>{siteConfig.whatsappDisplay}</strong></div>
           <div><span>BASE</span><strong>{siteConfig.location}</strong></div>
         </div>
       </section>
