@@ -44,6 +44,23 @@ export async function runAudit(inputUrl: string): Promise<AuditResult> {
     throw new Error("Only HTTP and HTTPS store URLs are supported.");
   }
 
+  const hostname = parsed.hostname.toLowerCase();
+  const blockedHost =
+    hostname === "localhost" ||
+    hostname.endsWith(".localhost") ||
+    hostname === "0.0.0.0" ||
+    hostname === "::1" ||
+    hostname.startsWith("127.") ||
+    hostname.startsWith("10.") ||
+    hostname.startsWith("192.168.") ||
+    /^172\.(1[6-9]|2\d|3[0-1])\./.test(hostname) ||
+    hostname.endsWith(".internal") ||
+    hostname.endsWith(".local");
+
+  if (blockedHost) {
+    throw new Error("That address is not a public storefront URL.");
+  }
+
   const response = await fetch(parsed.toString(), {
     redirect: "follow",
     signal: AbortSignal.timeout(12000),
