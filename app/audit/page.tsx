@@ -13,6 +13,8 @@ type Check = {
   recommendation: string;
 };
 
+type PlanPhase = { days: string; phase: string; objective: string; actions: string[]; };
+
 type Result = {
   url: string;
   finalUrl: string;
@@ -21,6 +23,7 @@ type Result = {
   generatedAt: string;
   checks: Check[];
   summary: string;
+  actionPlan: PlanPhase[];
 };
 
 export default function AuditPage() {
@@ -108,6 +111,28 @@ export default function AuditPage() {
                 );
               })}
             </div>
+
+            <section className="audit-roadmap">
+              <div className="audit-roadmap-intro">
+                <div>
+                  <div className="eyebrow">60-DAY EXECUTION ROADMAP</div>
+                  <h3>What to fix first, what comes next, and what to measure.</h3>
+                </div>
+                <p>This plan is generated from the storefront signals detected in this scan. It is an execution sequence, not a promise of results; traffic quality, offer strength, market demand and implementation all affect outcomes.</p>
+              </div>
+              <div className="audit-roadmap-grid">
+                {result.actionPlan.map((phase) => (
+                  <article className="audit-roadmap-card" key={phase.days}>
+                    <span className="roadmap-days">{phase.days}</span>
+                    <h4>{phase.phase}</h4>
+                    <p>{phase.objective}</p>
+                    <ul>
+                      {phase.actions.map((action) => <li key={action}>{action}</li>)}
+                    </ul>
+                  </article>
+                ))}
+              </div>
+            </section>
 
             <div className="audit-category-grid">
               {Object.entries(grouped).map(([category, checks]) => (
