@@ -203,9 +203,6 @@ export async function runAudit(inputUrl: string): Promise<AuditResult> {
   const grade = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : score >= 60 ? "D" : "F";
   const failures = checks.filter((check) => check.status === "fail").length;
   const warnings = checks.filter((check) => check.status === "warning").length;
-
-  const failures = checks.filter((check) => check.status === "fail").length;
-  const warnings = checks.filter((check) => check.status === "warning").length;
   const critical = checks.filter((check) => check.status === "fail");
   const improvement = checks.filter((check) => check.status === "warning");
   const criticalActions = critical.length
