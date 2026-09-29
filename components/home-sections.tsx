@@ -3,25 +3,43 @@
 import { useState } from "react";
 
 const systems = [
-  ["01", "Store strategy", "Positioning, offer architecture and the commercial path from first click to repeat purchase."],
-  ["02", "Conversion design", "Landing pages and storefront UX built around clarity, trust and action."],
-  ["03", "Technical foundations", "Speed, mobile UX, analytics and the infrastructure that keeps growth measurable."],
-  ["04", "Retention", "Lifecycle email, segmentation and post-purchase systems that increase customer value."],
-  ["05", "Paid acquisition", "Creative, landing-page alignment and channel systems for profitable traffic."],
-  ["06", "Growth reporting", "A practical operating view of what changed, what worked and what to improve next."],
+  ["01", "Store build", "Storefront architecture, Shopify development and conversion-led UX."],
+  ["02", "Search", "Technical SEO, product SEO, feeds and search visibility."],
+  ["03", "Paid media", "Google, Meta and TikTok acquisition aligned with the offer and landing experience."],
+  ["04", "Social & video", "Creative systems, social content and video designed for commerce."],
+  ["05", "Email & retention", "Lifecycle flows, campaigns and retention systems that support repeat purchase."],
+  ["06", "Data & automation", "Analytics, reporting and automation so decisions are based on evidence."],
 ];
 
 const services = [
-  { name: "Storefront", copy: "A sharper ecommerce experience from homepage to checkout.", bullets: ["UX audit", "Design system", "Shopify implementation"] },
-  { name: "Growth", copy: "A connected acquisition and conversion system, not isolated campaigns.", bullets: ["Offer strategy", "Landing pages", "Paid media support"] },
-  { name: "Retention", copy: "Turn more first-time buyers into repeat customers.", bullets: ["Lifecycle flows", "Segmentation", "Campaign calendar"] },
+  { name: "Technical fixes", copy: "Resolve the issues that make a store harder to crawl, trust, use or measure.", bullets: ["Bug resolution", "Technical SEO", "Tracking & analytics"] },
+  { name: "Site & conversion", copy: "Improve the path from first click to product decision to checkout.", bullets: ["UX audit", "Landing pages", "Product pages"] },
+  { name: "Integrations & setup", copy: "Connect the platforms that make an ecommerce operation easier to run.", bullets: ["Shopify setup", "Merchant Center", "Analytics & apps"] },
+  { name: "Growth & marketing", copy: "Connect search, paid media, social, content and retention around one commercial goal.", bullets: ["Google & Meta", "Content & video", "Email & retention"] },
 ];
 
-const proof = [
-  ["01", "Diagnose", "Find the revenue leaks before spending more money."],
-  ["02", "Prioritize", "Turn the audit into a ranked execution plan."],
-  ["03", "Build", "Ship the highest-impact improvements in focused sprints."],
-  ["04", "Measure", "Track the inputs and commercial outcomes that matter."],
+const platforms = ["Shopify", "WooCommerce", "Wix", "Magento", "Squarespace", "Shopline", "BigCommerce", "PrestaShop", "WordPress", "Webflow", "Etsy", "Amazon", "eBay", "Shopware", "OpenCart", "Walmart", "TikTok Shop"];
+
+const ecosystem = ["Shopify", "Google Ads", "Meta", "TikTok", "Pinterest", "YouTube", "Instagram", "Klaviyo", "Mailchimp", "Google Analytics", "Search Console", "Merchant Center", "Bing", "Ahrefs", "SEMrush", "Canva", "Zapier"];
+
+const proofImages = [
+  { src: "https://kiondigital.agency/__l5e/assets-v1/8c1e88d0-acdb-456b-88ca-5a7cae09ab03/proof-01.jpg", label: "Merchant Center overview" },
+  { src: "https://kiondigital.agency/__l5e/assets-v1/5463f73c-cab5-4015-9f8b-6f8a4064658d/proof-02.jpg", label: "Catalogue optimisation" },
+  { src: "https://kiondigital.agency/__l5e/assets-v1/9699e351-34e3-437f-bf40-9c864acd6237/proof-03.jpg", label: "Store quality" },
+  { src: "https://kiondigital.agency/__l5e/assets-v1/1a45a147-d730-4996-af80-0bcb20550f85/proof-04.jpg", label: "Product approvals" },
+  { src: "https://kiondigital.agency/__l5e/assets-v1/4a7514be-f63f-4e48-b888-64a7d2667f01/proof-05.jpg", label: "Shopify + Google Ads" },
+  { src: "https://kiondigital.agency/__l5e/assets-v1/22087aab-89be-4a09-87ba-9a60052f306c/proof-06.jpg", label: "Analytics reporting" },
+];
+
+const seasonal = [
+  ["OCT", "Halloween", "Themed bundles, urgency banners, paid social"],
+  ["NOV", "Black Friday", "Offer strategy, landing pages, checkout, speed and full-funnel ads"],
+  ["NOV", "Cyber Monday", "Retargeting, abandoned cart and last-chance email"],
+  ["DEC", "Christmas", "Gift guides, delivery cut-offs and merchandising"],
+  ["DEC", "Boxing Day", "Clearance, bundles and inventory clean-up"],
+  ["FEB", "Valentine's", "Gifting collections, bundles and campaign creative"],
+  ["MAR", "Eid / Easter", "Gifting, shipping promises and seasonal creative"],
+  ["MAY", "Mother's Day", "Gift finders, personalised products and UGC ads"],
 ];
 
 export function HomeSections() {
@@ -32,303 +50,122 @@ export function HomeSections() {
       <section className="hero section">
         <div className="shell hero-grid">
           <div>
-            <div className="eyebrow"><span className="pulse" /> ECOMMERCE GROWTH STUDIO</div>
-            <h1>Build an online store that <em>earns</em> attention.</h1>
+            <div className="eyebrow"><span className="pulse" /> E-COMMERCE & SHOPIFY GROWTH SYSTEMS</div>
+            <h1>Build better.<br /><em>Convert more.</em><br />Grow faster.</h1>
             <p className="hero-copy">
-              AbbeyPress helps ecommerce brands turn traffic into customers with stronger storefronts,
-              clearer offers and conversion systems that compound.
+              AbbeyPress builds, optimizes and scales ecommerce brands across search, paid media, social, email, data and conversion.
             </p>
             <div className="actions">
-              <a className="button button-dark" href="/audit">Get your free audit <span>↗</span></a>
-              <a className="text-link" href="#systems">Explore the systems <span>↓</span></a>
+              <a className="button button-dark" href="/audit">Run a free store audit <span>↗</span></a>
+              <a className="text-link" href="#systems">Explore the growth systems <span>↓</span></a>
             </div>
-            <div className="micro-proof">
-              <span>Strategy</span><i /> <span>Design</span><i /> <span>Development</span><i /> <span>Growth</span>
-            </div>
+            <div className="micro-proof"><span>Store build</span><i /><span>Search</span><i /><span>Paid</span><i /><span>Social</span><i /><span>Email</span><i /><span>Data</span></div>
           </div>
 
-          <div className="hero-art" aria-label="Abstract ecommerce growth dashboard preview">
-            <div className="art-grid" />
-            <div className="metric-card metric-main">
-              <small>STORE HEALTH</small>
-              <strong>86<span>/100</span></strong>
-              <div className="mini-bars">
-                <span style={{ height: "28%" }} />
-                <span style={{ height: "42%" }} />
-                <span style={{ height: "36%" }} />
-                <span style={{ height: "58%" }} />
-                <span style={{ height: "68%" }} />
-                <span style={{ height: "82%" }} />
-                <span style={{ height: "94%" }} />
-              </div>
-            </div>
-            <div className="metric-card metric-side">
-              <small>CONVERSION</small>
-              <strong>+31.8%</strong>
-              <span className="trend">↗ compared with previous period</span>
-            </div>
-            <div className="floating-pill">Commerce systems, connected.</div>
+          <div className="hero-art hero-dashboard" aria-label="Ecommerce growth dashboard">
+            <div className="dashboard-top"><span>LIVE STORE SIGNALS</span><b>GROWTH SYSTEM</b></div>
+            <div className="dashboard-score"><small>STORE HEALTH</small><strong>86<span>/100</span></strong><div className="dashboard-line"><i /><i /><i /><i /><i /><i /><i /></div></div>
+            <div className="dashboard-row"><div><small>CONVERSION</small><strong>+31.8%</strong></div><div><small>CHANNELS</small><strong>06</strong></div></div>
+            <div className="dashboard-footer">Commerce systems, connected. <span>↗</span></div>
           </div>
         </div>
       </section>
 
-      <section className="signal-bar">
-        <div className="shell signal-inner">
-          <span>BUILT FOR GROWTH-MINDED BRANDS</span>
-          <div><b>SHOPIFY</b><b>KLAVIYO</b><b>META</b><b>GOOGLE</b><b>TIKTOK</b></div>
+      <section className="stats-strip">
+        <div className="shell stats-grid">
+          <div><strong>16</strong><span>Growth systems</span></div>
+          <div><strong>26</strong><span>Specialists across the operation</span></div>
+          <div><strong>12</strong><span>Audit areas in the deep scan</span></div>
+          <div><strong>60</strong><span>Days in the first execution roadmap</span></div>
         </div>
       </section>
 
-      <section className="section intro" id="proof">
-        <div className="shell split">
-          <div>
-            <div className="eyebrow">THE ABBEYPRESS APPROACH</div>
-            <h2>Less guessing.<br /><em>More useful work.</em></h2>
-          </div>
-          <div>
-            <p className="lead">
-              Most stores do not need another random tactic. They need a connected system where the
-              storefront, offer, traffic, retention and measurement all support the same commercial goal.
-            </p>
-            <a className="text-link" href="/audit">See how we diagnose a store <span>↗</span></a>
-          </div>
-        </div>
-        <div className="shell process-grid">
-          {proof.map(([number, title, copy]) => (
-            <article key={number} className="process-card">
-              <span>{number}</span>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section dark-section" id="systems">
+      <section className="section platform-section">
         <div className="shell">
           <div className="section-head">
-            <div>
-              <div className="eyebrow light">THE GROWTH SYSTEM</div>
-              <h2>Six levers.<br /><em>One commercial engine.</em></h2>
-            </div>
-            <p>Start where the bottleneck is, then connect the improvements so each layer reinforces the next.</p>
+            <div><div className="eyebrow">PLATFORMS</div><h2>Built across the<br /><em>commerce stack.</em></h2></div>
+            <p>From Shopify development and conversion optimization to marketplaces, search, paid media and retention.</p>
           </div>
-          <div className="system-grid">
-            {systems.map(([number, title, copy]) => (
-              <article className="system-card" key={number}>
-                <span className="system-number">{number}</span>
-                <h3>{title}</h3>
-                <p>{copy}</p>
-                <span className="arrow">↗</span>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section services" id="services">
-        <div className="shell">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow">SERVICES</div>
-              <h2>Choose the work.<br /><em>Keep the outcome in view.</em></h2>
-            </div>
-          </div>
-          <div className="service-layout">
-            <div className="service-tabs">
-              {services.map((service) => (
-                <button
-                  key={service.name}
-                  className={activeService === service.name ? "service-tab active" : "service-tab"}
-                  onClick={() => setActiveService(service.name)}
-                >
-                  <span>{service.name}</span>
-                  <b>→</b>
-                </button>
-              ))}
-            </div>
-            <div className="service-panel">
-              {services.filter((service) => service.name === activeService).map((service) => (
-                <div key={service.name}>
-                  <span className="eyebrow">SELECTED SERVICE</span>
-                  <h3>{service.name}</h3>
-                  <p>{service.copy}</p>
-                  <div className="tag-row">
-                    {service.bullets.map((bullet) => <span key={bullet}>{bullet}</span>)}
-                  </div>
-                  <a className="button button-dark" href="/contact">Talk about this work <span>↗</span></a>
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="platform-cloud">{platforms.map((platform) => <span key={platform}>{platform}</span>)}</div>
         </div>
       </section>
 
       <section className="section audit-section" id="audit">
         <div className="shell audit-card">
           <div>
-            <div className="eyebrow">FREE STORE AUDIT</div>
-            <h2>Before we build,<br /><em>let's find the leak.</em></h2>
-            <p>
-              Get a practical first-pass review covering storefront clarity, mobile experience,
-              conversion friction, trust, tracking and growth readiness.
-            </p>
-            <div className="audit-points">
-              <span>✓ Shareable report</span>
-              <span>✓ Prioritized opportunities</span>
-              <span>✓ No sales call required</span>
-            </div>
+            <div className="eyebrow">FREE TOOL · NO SIGNUP</div>
+            <h2>See what your store is losing<br /><em>in one deep scan.</em></h2>
+            <p>Paste your public storefront. The engine reads the live page and checks technical SEO, mobile, conversion, trust, tracking, product signals and more — then ranks what needs attention first.</p>
+            <div className="audit-points"><span>✓ Real storefront data</span><span>✓ Critical issues first</span><span>✓ 60-day action plan</span><span>✓ No admin access</span></div>
           </div>
           <form className="audit-form" action="/audit" method="get">
             <label htmlFor="store-url">Store URL</label>
             <input id="store-url" name="url" placeholder="https://yourstore.com" type="url" required />
-            <button className="button button-light" type="submit">Start the audit <span>↗</span></button>
-            <small>Your first-pass report is generated from the public storefront—no admin access required.</small>
+            <button className="button button-dark" type="submit">Run the audit <span>↗</span></button>
+            <small>We only read public storefront pages. The report explains what was detected, why it matters, what to fix first and what to work on over the next 60 days.</small>
           </form>
         </div>
       </section>
 
-      <section className="section roadmap">
-        <div className="shell split">
-          <div>
-            <div className="eyebrow">WHAT COMES NEXT</div>
-            <h2>A website is the front door.<br /><em>The system is the business.</em></h2>
-          </div>
-          <div>
-            <p className="lead">We will turn this foundation into a complete agency operating site: case studies, seasonal planning, live audit reports, blog, integrations and lead capture.</p>
-            <a className="button button-dark" href="#contact">Start a project <span>↗</span></a>
-          </div>
-        </div>
-      </section>
-
-      <section className="section founder-section">
-        <div className="shell founder-grid">
-          <div className="founder-photo-wrap">
-            <img src="/founder.jpg" alt="AbbeyPress founder" className="founder-photo" />
-            <div className="founder-badge">ABBEYPRESS<br /><span>FOUNDER</span></div>
-          </div>
-          <div className="founder-copy">
-            <div className="eyebrow">THE PERSON BEHIND THE SYSTEM</div>
-            <h2>Built by someone who<br /><em>understands the sale.</em></h2>
-            <p className="lead">
-              AbbeyPress is designed around a simple idea: ecommerce growth should connect strategy,
-              storefront experience, acquisition and retention instead of treating them as separate jobs.
-            </p>
-            <div className="founder-stats">
-              <div><strong>01</strong><span>Commercial thinking</span></div>
-              <div><strong>02</strong><span>Conversion-first execution</span></div>
-              <div><strong>03</strong><span>Systems over shortcuts</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section proof-section">
+      <section className="section video-proof-section">
         <div className="shell">
           <div className="section-head">
-            <div>
-              <div className="eyebrow">PROOF OF WORK</div>
-              <h2>Make the work<br /><em>easy to understand.</em></h2>
-            </div>
-            <p>Case studies will live here as structured proof: the problem, the intervention, the commercial metric and the lesson.</p>
+            <div><div className="eyebrow">CLIENT VIDEO REVIEWS</div><h2>Hear it from the<br /><em>store owners.</em></h2></div>
+            <p>Unedited client video reviews are the strongest proof format. The production-ready layout is here; approved video files can be dropped into the cards without changing the design.</p>
           </div>
-          <div className="case-grid">
-            <article className="case-card case-large">
-              <span>CASE STUDY / 01</span>
-              <div><h3>Storefront → conversion system</h3><p>A full-funnel rebuild focused on clarity, trust and purchase friction.</p></div>
-              <b>View case study ↗</b>
-            </article>
-            <article className="case-card">
-              <span>CASE STUDY / 02</span>
-              <div><h3>Traffic → profitable landing path</h3><p>Align acquisition intent with the page experience.</p></div>
-              <b>View case study ↗</b>
-            </article>
-            <article className="case-card accent-card">
-              <span>CASE STUDY / 03</span>
-              <div><h3>First order → repeat customer</h3><p>Lifecycle systems that give retention a real commercial role.</p></div>
-              <b>View case study ↗</b>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section seasonal-section">
-        <div className="shell">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow">SEASONAL PLANNER</div>
-              <h2>Don't discover<br /><em>the deadline late.</em></h2>
-            </div>
-            <p>Campaigns need lead time. The planner will turn important retail moments into a practical preparation calendar.</p>
-          </div>
-          <div className="season-grid">
-            <div><span>OCT</span><strong>Halloween</strong><small>Offer + creative + landing page</small></div>
-            <div><span>NOV</span><strong>Black Friday</strong><small>Acquisition + conversion + retention</small></div>
-            <div><span>DEC</span><strong>Holiday</strong><small>Gift intent + urgency + fulfilment</small></div>
-            <div><span>JAN</span><strong>New Year</strong><small>Retention + reactivation</small></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section ecosystem-section">
-        <div className="shell ecosystem-grid">
-          <div>
-            <div className="eyebrow">ECOSYSTEM</div>
-            <h2>Work with the tools<br /><em>your store already uses.</em></h2>
-          </div>
-          <div className="ecosystem-logos">
-            {["Shopify", "Klaviyo", "Meta", "Google Ads", "TikTok", "GA4", "GTM", "Hotjar"].map((tool) => (
-              <span key={tool}>{tool}</span>
+          <div className="video-review-grid">
+            {[1, 2, 3].map((n) => (
+              <article className="video-review-card" key={n}>
+                <div className="video-placeholder"><span>CLIENT STORY {String(n).padStart(2, "0")}</span><b>▶</b></div>
+                <div><strong>Store owner review</strong><small>Video testimonial · add approved client clip</small></div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section testimonial-section">
-        <div className="shell testimonial-box">
-          <div className="eyebrow">CLIENT EXPERIENCE</div>
-          <blockquote>“The goal isn't to make a prettier store. It's to make the next customer understand why they should buy.”</blockquote>
-          <div className="quote-meta">ABBEYPRESS / OPERATING PRINCIPLE</div>
-        </div>
-      </section>
-
-      <section className="section blog-section">
+      <section className="section dark-section" id="systems">
         <div className="shell">
-          <div className="section-head">
-            <div>
-              <div className="eyebrow">INSIGHTS</div>
-              <h2>Useful thinking,<br /><em>not content for content's sake.</em></h2>
-            </div>
-            <a className="text-link" href="/blog">View the blog <span>↗</span></a>
-          </div>
-          <div className="article-grid">
-            <article><span>CONVERSION</span><h3>Why more traffic won't fix a confused storefront.</h3><a href="/blog">Read article ↗</a></article>
-            <article><span>STRATEGY</span><h3>The difference between an ecommerce tactic and a growth system.</h3><a href="/blog">Read article ↗</a></article>
-            <article><span>RETENTION</span><h3>Where the second purchase actually starts.</h3><a href="/blog">Read article ↗</a></article>
-          </div>
+          <div className="section-head"><div><div className="eyebrow light">OUR SYSTEMS</div><h2>Six visible levers.<br /><em>One operating engine.</em></h2></div><p>Store build, search, paid media, social, video, email, data and automation work together instead of living in separate silos.</p></div>
+          <div className="system-grid">{systems.map(([number, title, copy]) => <article className="system-card" key={number}><span className="system-number">{number}</span><h3>{title}</h3><p>{copy}</p><span className="arrow">↗</span></article>)}</div>
         </div>
       </section>
 
-      <section className="section contact-section" id="contact">
-        <div className="shell contact-box">
-          <div>
-            <div className="eyebrow light">CONTACT</div>
-            <h2>Have a store to grow?</h2>
-            <p>Bring the URL, the commercial goal and the bottleneck. We will start from there.</p>
-          </div>
-          <div className="contact-actions">
-            <a className="button button-light" href="#audit">Request an audit <span>↗</span></a>
-            <a className="contact-link" href="/audit">Start with the audit form <span>↗</span></a>
-          </div>
+      <section className="section services" id="services">
+        <div className="shell">
+          <div className="section-head"><div><div className="eyebrow">SERVICES & OFFERS</div><h2>Pick exactly what<br /><em>your store needs.</em></h2></div><p>Start with the bottleneck. Then connect the work around the commercial outcome.</p></div>
+          <div className="service-layout"><div className="service-tabs">{services.map((service) => <button key={service.name} className={activeService === service.name ? "service-tab active" : "service-tab"} onClick={() => setActiveService(service.name)}><span>{service.name}</span><b>→</b></button>)}</div><div className="service-panel">{services.filter((service) => service.name === activeService).map((service) => <div key={service.name}><span className="eyebrow">SELECTED SERVICE</span><h3>{service.name}</h3><p>{service.copy}</p><div className="tag-row">{service.bullets.map((bullet) => <span key={bullet}>{bullet}</span>)}</div><a className="button button-dark" href="/contact">Talk about this work <span>↗</span></a></div>)}</div></div>
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="shell footer-inner">
-          <div className="brand footer-brand"><span className="brand-mark">A</span><span>ABBEYPRESS</span><small>AGENCY</small></div>
-          <p>© {new Date().getFullYear()} AbbeyPress Agency. Built for better commerce.</p>
+      <section className="section seasonal-section">
+        <div className="shell">
+          <div className="section-head"><div><div className="eyebrow">SEASONAL PLANNER</div><h2>Every shopping moment<br /><em>needs lead time.</em></h2></div><p>Use the calendar to decide which retail moments deserve campaigns, landing pages, creative and retention work.</p></div>
+          <div className="season-grid">{seasonal.map(([month, title, copy]) => <div key={title}><span>{month}</span><strong>{title}</strong><small>{copy}</small></div>)}</div>
         </div>
-      </footer>
+      </section>
+
+      <section className="section proof-section">
+        <div className="shell">
+          <div className="section-head"><div><div className="eyebrow">REAL WORK PROOF</div><h2>Real dashboards.<br /><em>Real work.</em></h2></div><p>Proof imagery is drawn from the source material: Merchant Center, product feeds, store quality, approvals, Shopify connections and analytics.</p></div>
+          <div className="proof-gallery">{proofImages.map((item, i) => <figure className={i === 0 ? "proof-image proof-image-large" : "proof-image"} key={item.src}><img src={item.src} alt={item.label} loading="lazy" /><figcaption>{item.label}</figcaption></figure>)}</div>
+          <div className="proof-note"><strong>547 products submitted · 19 manually optimised</strong><span>Example work-proof metric from the source material. Keep only figures that are genuinely attributable to the relevant client/work.</span></div>
+        </div>
+      </section>
+
+      <section className="section ecosystem-section">
+        <div className="shell ecosystem-grid"><div><div className="eyebrow">OUR ECOSYSTEM</div><h2>One team.<br /><em>Multiple growth channels.</em></h2><p className="lead">From Shopify development and conversion optimization to SEO, paid media, analytics and retention, the operation connects the tools modern ecommerce brands rely on.</p></div><div className="ecosystem-logos">{ecosystem.map((tool) => <span key={tool}>{tool}</span>)}</div></div>
+      </section>
+
+      <section className="section testimonial-section">
+        <div className="shell testimonial-box"><div className="eyebrow">TESTIMONIALS</div><h2>What store owners<br /><em>say about the work.</em></h2><div className="testimonial-hold"><strong>Approved client testimony goes here.</strong><p>The source site exposes a client-review section and video-review cards, but the public crawl does not expose the underlying quote text or video files. I have deliberately not invented testimonials.</p><span>Video review system ready for your approved clips.</span></div></div>
+      </section>
+
+      <section className="section founder-section"><div className="shell founder-grid"><div className="founder-photo-wrap"><img src="/founder.jpg" alt="AbbeyPress founder" className="founder-photo" /><div className="founder-badge">ABBEYPRESS<br /><span>FOUNDER</span></div></div><div><div className="eyebrow">THE PERSON BEHIND THE SYSTEM</div><h2>Built around the<br /><em>commercial outcome.</em></h2><p className="lead">Strategy, storefront experience, acquisition, retention and measurement should reinforce one another. That is the operating idea behind AbbeyPress.</p></div></div></section>
+
+      <section className="section contact-section" id="contact"><div className="shell contact-box"><div><div className="eyebrow light">READY TO GROW?</div><h2>Tell us where your store is today.</h2><p>Send the store URL, the commercial goal and the bottleneck. Start with the audit if you want the evidence first.</p></div><div className="contact-actions"><a className="button button-light" href="/audit">Run the audit <span>↗</span></a><a className="contact-link" href="/contact">Start a project <span>↗</span></a></div></div></section>
+
+      <footer className="footer"><div className="shell footer-inner"><div className="brand footer-brand"><span className="brand-mark">A</span><span>ABBEYPRESS</span><small>AGENCY</small></div><p>© {new Date().getFullYear()} AbbeyPress Agency. Ecommerce growth systems.</p></div></footer>
     </>
   );
 }
