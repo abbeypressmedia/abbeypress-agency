@@ -9,6 +9,13 @@ export type AuditCheck = {
   recommendation: string;
 };
 
+export type AuditPlanPhase = {
+  days: string;
+  phase: string;
+  objective: string;
+  actions: string[];
+};
+
 export type AuditResult = {
   url: string;
   finalUrl: string;
@@ -17,6 +24,7 @@ export type AuditResult = {
   generatedAt: string;
   checks: AuditCheck[];
   summary: string;
+  actionPlan: AuditPlanPhase[];
 };
 
 function has(html: string, pattern: RegExp) {
@@ -196,6 +204,56 @@ export async function runAudit(inputUrl: string): Promise<AuditResult> {
   const failures = checks.filter((check) => check.status === "fail").length;
   const warnings = checks.filter((check) => check.status === "warning").length;
 
+  const failures = checks.filter((check) => check.status === "fail").length;
+  const warnings = checks.filter((check) => check.status === "warning").length;
+  const critical = checks.filter((check) => check.status === "fail");
+  const improvement = checks.filter((check) => check.status === "warning");
+  const criticalActions = critical.length
+    ? critical.map((check) => `Fix ${check.label}: ${check.recommendation}`)
+    : ["No critical technical or conversion failures were detected. Validate the highest-value customer journey manually before scaling traffic."];
+  const improvementActions = improvement.length
+    ? improvement.map((check) => `Improve ${check.label}: ${check.recommendation}`)
+    : ["No warning-level gaps were detected. Use controlled experiments to improve the strongest remaining growth constraint."];
+
+  const actionPlan: AuditPlanPhase[] = [
+    {
+      days: "Days 1–7",
+      phase: "Stabilize the foundation",
+      objective: "Remove the issues that can block trust, discoverability, measurement or basic purchasing behavior.",
+      actions: criticalActions.slice(0, 5),
+    },
+    {
+      days: "Days 8–21",
+      phase: "Repair the buying journey",
+      objective: "Turn the storefront into a clearer path from landing page to product decision to checkout.",
+      actions: [
+        ...improvementActions.filter((action) => /CTA|Purchase|Ecommerce|Trust|content/i.test(action)).slice(0, 3),
+        "Review the homepage, collection pages, product pages, cart and checkout as one connected funnel.",
+        "Add proof, objections, shipping/returns and payment reassurance at the points where shoppers hesitate.",
+      ],
+    },
+    {
+      days: "Days 22–45",
+      phase: "Build demand capture and measurement",
+      objective: "Strengthen organic signals, content depth and event tracking so decisions are based on observed behavior.",
+      actions: [
+        ...improvementActions.filter((action) => /SEO|Structured|Canonical|Analytics|content/i.test(action)).slice(0, 3),
+        "Verify analytics events for product views, add-to-cart, checkout start and purchase.",
+        "Publish or improve high-intent content that answers buying questions and supports product discovery.",
+      ],
+    },
+    {
+      days: "Days 46–60",
+      phase: "Test, learn and compound",
+      objective: "Use the repaired foundation to run focused experiments and measure movement in the funnel.",
+      actions: [
+        "Establish a weekly baseline for traffic, product engagement, add-to-cart rate, checkout rate and conversion rate.",
+        "Run 1–2 controlled tests against the biggest remaining bottleneck instead of changing the whole store at once.",
+        "Compare results against the baseline, keep winning changes, document learnings and set the next 60-day priorities.",
+      ],
+    },
+  ];
+
   return {
     url: parsed.toString(),
     finalUrl,
@@ -203,6 +261,7 @@ export async function runAudit(inputUrl: string): Promise<AuditResult> {
     grade,
     generatedAt: new Date().toISOString(),
     checks,
+    actionPlan,
     summary: `${failures} high-priority gaps and ${warnings} improvement opportunities were detected in the public storefront scan.`,
   };
 }
