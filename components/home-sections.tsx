@@ -145,7 +145,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="section proof-section">
+      <section className="section proof-section" id="proof">
         <div className="shell">
           <div className="section-head"><div><div className="eyebrow">REAL WORK PROOF</div><h2>Real dashboards.<br /><em>Real work.</em></h2></div><p>Proof imagery is drawn from the source material: Merchant Center, product feeds, store quality, approvals, Shopify connections and analytics.</p></div>
           <div className="proof-gallery">{proofImages.map((item, i) => <figure className={i === 0 ? "proof-image proof-image-large" : "proof-image"} key={item.src}><img src={item.src} alt={item.label} loading="lazy" /><figcaption>{item.label}</figcaption></figure>)}</div>
